@@ -1,0 +1,721 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+:root {
+  --primary: cyan;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: black;
+  color: white;
+}
+
+header {
+  background-color: rgba(1, 1, 1, 0.8);
+  border-bottom: 3px solid rgb(0, 153, 255);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 9%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: top 0.3s ease-in-out; /* Transisi untuk pergerakan navbar */
+}
+
+header.hide {
+  top: -100px; /* Sembunyikan navbar dengan mengubah posisi ke atas */
+}
+
+.logo {
+  font-size: 3rem;
+  color: var(--primary);
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.5s ease;
+  text-decoration: none;
+  -webkit-transition: 0.5s ease;
+  -moz-transition: 0.5s ease;
+  -ms-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+nav a {
+  font-size: 1.8rem;
+  color: white;
+  margin-left: 4rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--primary);
+  border-bottom: 3px solid var(--primary);
+}
+
+/* Menu untuk layar besar */
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+#menu-icon {
+  display: none;
+}
+@media (max-width: 995px) {
+  nav {
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0;
+    width: 40%;
+    border-left: 3px solid var(--primary);
+    border-bottom: 3px solid var(--primary);
+    border-bottom-left-radius: 2rem;
+    padding: 1rem;
+    background-color: #161616;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+  }
+
+  nav.active {
+    display: block;
+    color: var(--primary); /* Warna untuk menu aktif */
+    border-bottom: 3px solid var(--primary);
+  }
+
+  /* Efek Klik Menu */
+  nav a.clicked {
+    background-color: var(--primary-light);
+    border-radius: 5px;
+  }
+
+  nav a {
+    display: block;
+    font-size: 2rem;
+    margin: 3rem 0;
+  }
+
+  nav a:hover,
+  nav a.active {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border-bottom: 0.5rem solid var(--primary);
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+  }
+  nav ul {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #333;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  #menu-icon {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  #menu-icon div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+  }
+}
+
+/* Section Styling */
+section {
+  min-height: 100vh;
+  padding: 5rem 9%;
+}
+
+/* Home Section */
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+  background-color: black;
+}
+
+.home .home-content {
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.home-content h1 span {
+  color: var(--primary);
+}
+
+.home-content h3 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.home-content p {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+.home-img {
+  border-radius: 50%;
+}
+
+.home-img img {
+  position: relative;
+  width: 32vw;
+  border-radius: 50%;
+  box-shadow: 0 0 25px var(--primary);
+  cursor: pointer;
+  transition: 0.2s linear;
+  -webkit-transition: 0.2s linear;
+  -moz-transition: 0.2s linear;
+  -ms-transition: 0.2s linear;
+  -o-transition: 0.2s linear;
+}
+
+.home-img img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px var(--primary);
+}
+
+/* Social Icons */
+.social-icons a {
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  background-color: transparent;
+  border: 0.2rem solid var(--primary);
+  font-size: 2rem;
+  border-radius: 50%;
+  margin: 3rem 1.5rem 3rem 0;
+  transition: 0.3s ease;
+  color: var(--primary);
+}
+
+.social-icons a:hover {
+  background-color: var(--primary);
+  color: black;
+  transform: scale(1.3) trans;
+  background-color: var(--primary);
+  box-shadow: 0 0 25px var(--primary);
+  -webkit-transform: scale(1.3) trans;
+  -moz-transform: scale(1.3) trans;
+  -ms-transform: scale(1.3) trans;
+  -o-transform: scale(1.3) trans;
+}
+/*btn*/
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background-color: black;
+  border-radius: 4rem;
+  font-size: 2.5rem;
+  color: var(--primary);
+  letter-spacing: 0.3rem;
+  font-weight: 600;
+  border: 2px solid var(--primary);
+  transition: 0.3 ease;
+  cursor: pointer;
+  -webkit-border-radius: 4rem;
+  -moz-border-radius: 4rem;
+  -ms-border-radius: 4rem;
+  -o-border-radius: 4rem;
+}
+
+.btn:hover {
+  transform: scale3d(1.03);
+  background-color: var(--primary);
+  color: black;
+  box-shadow: 0 0 25px var(--primary);
+}
+
+.typing-text {
+  font-size: 34px;
+  font-weight: 600;
+  min-width: 280px;
+}
+
+.typing-text span {
+  position: relative;
+}
+
+.typing-text span::before {
+  content: "Softwere Developer";
+  color: var(--primary);
+  animation: words 20s infinite;
+  -webkit-animation: words 20s infinite;
+}
+
+.typing-text span::after {
+  content: "";
+  background-color: black;
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 100%;
+  border-left: 3px solid black;
+  right: -8px;
+  animation: cursor 0.6s infinite;
+  -webkit-animation: cursor 0.8s infinite, typing 30s steps(30) infinite;
+}
+
+@keyframes cursor {
+  to {
+    border-left: 3px solid var(--primary);
+  }
+}
+
+@keyframes words {
+  0%,
+  100% {
+    content: "Student Of SMP Sains Al-Qur'an";
+  }
+}
+@keyframes typing {
+  10%,
+  15%,
+  30%,
+  35%,
+  50%,
+  55%,
+  70%,
+  75%,
+  90%,
+  95% {
+    width: 0;
+  }
+  5%,
+  20%,
+  25%,
+  40%,
+  45%,
+  60%,
+  65%,
+  80%,
+  85% {
+    width: calc(100% + 8px);
+  }
+}
+
+.artikel {
+  display: flex; /* Mengaktifkan Flexbox */
+  justify-content: center; /* Menyusun elemen secara horizontal */
+  align-items: center; /* Menyusun elemen secara vertikal */
+
+  min-height: 100vh;
+}
+
+.artikel .inovasi h1 {
+  font-size: 6rem;
+  text-align: center;
+  margin-bottom: 6rem;
+  color: var(--primary);
+}
+.artikel .inovasi h3 {
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  margin-top: 6rem;
+}
+.artikel .inovasi h4 {
+  font-size: 2.75rem;
+}
+
+.artikel .inovasi p {
+  font-size: 2rem;
+  text-align: justify;
+}
+
+.masalah {
+  align-items: center;
+  min-height: 100vh;
+}
+.tantangan-detail {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.tantangan-item {
+  flex: 1;
+  background-color: #0f1c29;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.masalah .tantangan {
+  min-height: 80vh;
+  align-items: center;
+}
+
+.masalah h1 {
+  text-align: center;
+  font-size: 6rem;
+  margin-bottom: 6rem;
+  color: var(--primary);
+}
+.masalah h3 {
+  font-size: 3.5rem;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  margin-top: 6rem;
+}
+.masalah h4 {
+  font-size: 3rem;
+}
+
+.masalah p {
+  margin-bottom: 3rem;
+  text-align: left;
+  font-size: 2rem;
+  text-align: justify;
+}
+/* Perbaikan tata letak untuk desain */
+.solusi {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dua kolom seimbang */
+  align-items: center;
+  gap: 4rem; /* Ruang antar kolom */
+  padding: 5rem 10%;
+  background-color: #000;
+  color: #fff;
+}
+
+.solusi .gambar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.solusi .gambar img {
+  max-width: 80%; /* Membatasi gambar agar sesuai dengan area */
+  height: auto;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.solusi .solusi-conten {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Jarak antar elemen teks */
+}
+
+.solusi h1 {
+  font-size: 3.75rem;
+  color: #00e0ff;
+}
+
+.solusi p {
+  font-size: 1.6rem;
+  line-height: 1.8;
+}
+
+.solusi ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: list-counter; /* Reset counter */
+}
+
+.solusi ol li {
+  align-items: flex-start;
+  gap: 2rem; /* Spasi antara lingkaran dan teks */
+  margin-bottom: 2rem;
+}
+
+.solusi ol li::before {
+  counter-increment: list-counter; /* Tambahkan counter */
+  content: counter(list-counter);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  background: #00e0ff;
+  color: #000;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.solusi h3 {
+  font-size: 2rem;
+  color: #00e0ff;
+}
+/* Media Queries */
+@media (max-width: 768px) {
+  .solusi {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .solusi .gambar img {
+    width: 90%;
+    height: auto;
+  }
+
+  .solusi h1 {
+    font-size: 5rem;
+    text-align: center;
+  }
+
+  .solusi ol {
+    margin-top: 2rem;
+  }
+
+  .solusi ol li {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .solusi ol li::before {
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
+
+  .solusi h3 {
+    font-size: 3rem;
+  }
+
+  .solusi p {
+    font-size: 1.8rem;
+  }
+}
+
+.kesimpulan {
+  align-items: center;
+  min-height: 50vh;
+}
+.kesimpulan h1 {
+  color: var(--primary);
+  font-size: 6rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.kesimpulan p {
+  text-align: justify;
+  font-size: 2.5rem;
+}
+
+/* Efek Transisi Dasar */
+.scroll-effect {
+  opacity: 0;
+  /*Awalelementransparan*/
+  transform: translateY(30px);
+  /*Posisielemenbergeserkebawah*/
+  transition: opacity 2s ease, transform 2s ease;
+  /* Durasi transisi */
+}
+
+/* Ketika elemen terlihat */
+.scroll-effect.visible {
+  opacity: 1; /* Elemen terlihat penuh */
+  transform: translateY(0); /* Elemen kembali ke posisi awal */
+}
+
+@media (max-width: 1000px) {
+  .home {
+    gap: 4rem;
+  }
+}
+@media (max-width: 995px) {
+  /* Header adjustments */
+
+  .logo {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  nav ul li {
+    margin: 0.5rem 0;
+  }
+
+  nav ul li a {
+    font-size: 1.6rem;
+    margin-left: 0;
+  }
+
+  /* Home Section */
+  .home {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .home .home-content {
+    text-align: center;
+  }
+
+  .home .home-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .home .home-content h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .home .home-content p {
+    font-size: 1.4rem;
+  }
+
+  .home-img img {
+    width: 80%;
+    margin-top: 2rem;
+  }
+
+  /* Artikel Section */
+  .artikel {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .artikel .inovasi h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .artikel .inovasi h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .artikel .inovasi h4 {
+    font-size: 1.8rem;
+  }
+
+  .artikel .inovasi p {
+    font-size: 1.4rem;
+  }
+
+  /* Masalah Section */
+  .masalah {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .masalah h1 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .masalah h3 {
+    font-size: 2rem;
+  }
+
+  .masalah h4 {
+    font-size: 1.8rem;
+  }
+
+  .masalah p {
+    font-size: 1.4rem;
+  }
+
+  /* Solusi Section */
+  .solusi {
+    grid-template-columns: 1fr; /* Single-column layout */
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .solusi h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .solusi .gambar img {
+    max-width: 90%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .solusi p {
+    font-size: 1.4rem;
+    text-align: justify;
+  }
+
+  .solusi ol li::before {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+  }
+
+  /* Kesimpulan Section */
+  .kesimpulan {
+    padding: 2rem;
+  }
+
+  .kesimpulan h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .kesimpulan p {
+    font-size: 1.4rem;
+  }
+}
